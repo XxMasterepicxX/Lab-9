@@ -1,13 +1,3 @@
-def encode(password):
-    # Encode the password by shifting each digit up by 3
-    encoded_password = "".join(str((int(digit) + 3) % 10) for digit in password)
-    return encoded_password
-
-def decode(encoded_password):
-    # Decode the password by shifting each digit down by 3
-    decoded_password = "".join(str((int(digit) - 3) % 10) for digit in encoded_password)
-    return decoded_password
-
 def main():
     while True:
         print("\nMenu")
@@ -33,6 +23,23 @@ def main():
 
         else:
             print("Invalid choice. Please try again.")
+
+
+# PARTNER COMMIT
+def encode(password):
+    encoded_password = ""
+    for digit in password:
+        shifted_digit = (int(digit) + 3) % 10
+        encoded_password += str(shifted_digit)
+    return encoded_password
+
+# PARTNER COMMIT
+def decode(encoded_password):
+    decoded_password = ""
+    for digit in encoded_password:
+        shifted_digit = (int(digit) - 3) % 10
+        decoded_password += str(shifted_digit)
+    return decoded_password
 
 if __name__ == "__main__":
     main()
